@@ -20,7 +20,11 @@ function createClient(sessionId) {
         authStrategy: new LocalAuth({
             dataPath: sessionPath
         }),
-        puppeteer: { headless: true, args: ['--no-sandbox'] }
+        puppeteer: {
+  headless: true,
+  args: ['--no-sandbox', '--disable-setuid-sandbox']
+}
+
     });
 
     client.initialize();
